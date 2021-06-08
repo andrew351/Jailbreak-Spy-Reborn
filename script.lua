@@ -1989,7 +1989,7 @@ end
 
 function ret_spam_hash()
     for i,v in next, getgc() do
-        if typeof(v) == "function" and islclosure(v) and getfenv(v).script.Name == "LocalScript" then
+        if typeof(v) == "function" and islclosure(v) and getfenv(v).script and getfenv(v).script.Name == "LocalScript" then
             if tostring(getfenv(v).script.Parent) == "PlayerScripts" then
 				for i2,v2 in next, getupvalues(v) do
 					if typeof(v2) == "table" and i2 == 1 and getupvalues(v)[2] then
